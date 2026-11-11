@@ -37,7 +37,11 @@ robot integration point. It contains the exact inspected commits and paths.
 ## Verified state
 
 - Real L2 Ethernet input and calibrated 3D decoding work on the Apple Silicon Mac.
-- L2: `192.168.1.62:6101`; destination: `192.168.1.2:6201`.
+- Original direct-link captures used L2 `192.168.1.62:6101` and destination
+  `192.168.1.2:6201`. A later home-network configuration was acknowledged:
+  L2 `192.168.0.250:6101`, destination this Mac at `192.168.0.34:6201`.
+  Restart and live home-LAN verification are pending; see
+  [current network commissioning state](docs/home-network.md).
 - The original 30-second capture decoded 1,785,215 valid points with zero packet
   framing, CRC or payload failures, about 59,500 valid points per second.
 - The Java live probe decoded 479,880 points in 8.043 seconds with no invalid
@@ -49,8 +53,11 @@ robot integration point. It contains the exact inspected commits and paths.
 - GitHub's Linux CI passed for the initial implementation commit
   `ee9627fe30642c7c4fcbe2c99f28cd982f6654d0`:
   https://github.com/lrspeiser/unitree4d/actions/runs/43107945651
-- No L2 settings were changed. Only the Mac's dedicated Ethernet adapter was
-  changed to manual `192.168.1.2/24`, no router. Home-router settings were untouched.
+- UniFi now reserves the LiDAR and Mac addresses and resolves `unitree` /
+  `unitree.localdomain` to `192.168.0.250`. The LiDAR's published settings expose
+  static addressing, not a documented DHCP mode. Its new static configuration
+  returned a matching success ACK. The Mac's dedicated Ethernet adapter still
+  uses manual `192.168.1.2/24`, no router; Wi-Fi remains on the home LAN.
 
 The L2 is separately powered by its supplied wall adapter. The USB adapter never
 enumerated on the Mac; Ethernet solved the connection. There is no established

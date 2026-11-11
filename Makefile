@@ -23,6 +23,7 @@ test: java build/reference
 	build/reference tests/fixtures/l2-scan.bin > build/reference.csv
 	javac --release 17 -Xlint:all -cp build/java -d build/java $(TEST_SOURCES)
 	java -cp build/java unitree4d.L2Tests
+	python3 -m unittest discover -s tests -p test_l2_network.py
 
 clean:
 	rm -rf build

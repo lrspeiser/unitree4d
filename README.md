@@ -47,6 +47,11 @@ Run only one UDP receiver at a time. Java needs JDK 17 or newer; C++ needs a
 C++17 compiler. Plotting needs NumPy and Matplotlib. Neither receiver sends
 configuration commands to the L2. See [Mac connection notes](docs/mac-setup.md).
 
+For moving the sensor onto a home LAN and finding it by name, see
+[home-network commissioning](docs/home-network.md). The separate `l2_network.py`
+helper supports read-only queries and an explicit static-IP configuration write;
+it defaults to a dry run and has no undocumented DHCP mode.
+
 ## FRC architecture
 
 Use the **Jetson** for full point-cloud processing and recording. Send compact,
