@@ -1,0 +1,17 @@
+[Unit]
+Description=Unitree L2 Jetson receiver and NetworkTables bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=unitree
+WorkingDirectory=/opt/unitree4d
+EnvironmentFile=/etc/unitree-l2.env
+ExecStart=/bin/bash /opt/unitree4d/scripts/run-bridge.sh ${L2_BIND_IP} ${L2_SOURCE_IP} ${ROBORIO_IP}
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

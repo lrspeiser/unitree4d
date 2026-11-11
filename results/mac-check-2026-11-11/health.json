@@ -1,0 +1,34 @@
+{
+  "source_ip": "192.168.1.62",
+  "receiver_ip": "192.168.1.2",
+  "duration_s": 30.0036,
+  "received_packets": 6477,
+  "valid_scan_packets": 6477,
+  "scan_packets_per_s": 215.87409510858697,
+  "raw_points": 1943100,
+  "valid_points": 1785215,
+  "valid_points_per_s": 59500.026663467055,
+  "bad_frame": 0,
+  "bad_crc": 0,
+  "bad_payload": 0,
+  "nonfinite_points": 0,
+  "sequence_gaps": 0,
+  "sequence_resets_or_reorder": 6,
+  "duplicate_sequences": 0,
+  "dirty_index_mean": 8.12526,
+  "dirty_index_min": 0.0,
+  "dirty_index_max": 31.66667,
+  "apd_temperature_min_c": 42.08628,
+  "apd_temperature_max_c": 42.65348,
+  "device_packet_lost_up_max": 0.0,
+  "device_packet_lost_down_max": 0.0,
+  "rotation_periods_raw": [
+    4632,
+    230024
+  ],
+  "snapshot_points": 59630,
+  "packet_types": {
+    "102": 6477
+  },
+  "rate_basis": "total observed counts / full capture duration"
+}

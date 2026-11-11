@@ -1,0 +1,8 @@
+{
+  "method": "4 cm voxels, minimum 3 returns in hand capture, absent in comparison",
+  "hand_capture_near_points": 7401,
+  "removed_capture_near_points": 7059,
+  "changed_voxels": 236,
+  "changed_points": 2041,
+  "limitation": "Motion, occlusion and sampling also cause differences; this is not semantic hand detection."
+}

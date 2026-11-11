@@ -1,0 +1,7 @@
+/build/
+/l2_mac_check
+__pycache__/
+*.class
+.DS_Store
+/tmp/
+/results/latest/

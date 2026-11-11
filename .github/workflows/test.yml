@@ -1,0 +1,16 @@
+name: Verify receivers
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: make all test
+      - run: bash scripts/build-bridge.sh
+      - run: bash scripts/test-bridge.sh
