@@ -5,6 +5,17 @@ Those values were read through the actual sensor's version command.
 
 ## Current commissioning state (2026-11-11)
 
+**5090 continuation update:** the L2 at `192.168.0.250:6101` now sends to
+`192.168.0.36:6201` (the Windows PC), following an acknowledged sensor-only write.
+Native Windows live reception was verified. No Windows network settings were
+changed. `unitree.localdomain` resolved and the sensor returned YS-L2 identity.
+Use [the current README](../README.md) and
+[the electrical commissioning worksheet](electrical-team-build-guide.md#commission-the-robot-network).
+
+The following bullets document the preceding Mac commissioning step, including
+its former destination `192.168.0.34`. They are history, not settings to reapply.
+
+
 - UniFi reserved `192.168.0.250` for the L2 and named it `unitree`.
 - UniFi's local DNS record `unitree.localdomain` resolves to `192.168.0.250`.
   Both the full name and short `unitree` resolved through this Mac's normal OS

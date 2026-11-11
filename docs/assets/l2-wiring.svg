@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+ <title id="title">Unitree L2 software bot power and data wiring</title>
+ <desc id="desc">Existing battery and main breaker feed a protected distribution branch, then a dedicated CTRE VRM and a factory barrel cable to the LiDAR. Ethernet joins the robot switch to the Jetson. USB cameras retain their existing Jetson connections.</desc>
+ <defs><marker id="red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" fill="#a9342a"/></marker><marker id="blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 Z" fill="#255d85"/></marker></defs>
+ <rect width="1000" height="460" fill="white"/>
+ <g font-family="Arial,sans-serif" fill="#14232d">
+ <text x="30" y="35" font-size="23" font-weight="bold">Unitree L2 power and data connections</text>
+ <text x="30" y="61" font-size="15">Build a separate accessory branch. Preserve radio, roboRIO, Jetson, and camera power.</text>
+ <g fill="#f4f7f9" stroke="#607785" stroke-width="1.5">
+  <rect x="30" y="100" width="190" height="90" rx="6"/><rect x="275" y="100" width="190" height="90" rx="6"/>
+  <rect x="520" y="100" width="190" height="90" rx="6"/><rect x="765" y="100" width="205" height="90" rx="6"/>
+  <rect x="30" y="305" width="215" height="80" rx="6"/><rect x="520" y="305" width="190" height="80" rx="6"/><rect x="765" y="305" width="205" height="80" rx="6"/>
+ </g>
+ <g font-size="16" text-anchor="middle" font-weight="bold">
+  <text x="125" y="132">Existing robot battery</text><text x="125" y="160">and main breaker</text>
+  <text x="370" y="132">PDH or PDP</text><text x="370" y="160">protected output</text>
+  <text x="615" y="128">Dedicated CTRE VRM</text><text x="615" y="153">12Vin to 12V/2A</text>
+  <text x="868" y="132">Unitree L2</text><text x="868" y="160">DC power socket</text>
+  <text x="138" y="338">Existing USB cameras</text><text x="615" y="351">Onboard Jetson</text><text x="868" y="351">Robot switch</text>
+ </g>
+ <text x="615" y="175" font-size="13" text-anchor="middle">1.5 A continuous / 2 A peak</text>
+ <g fill="none" stroke="#a9342a" stroke-width="2.5" marker-end="url(#red)"><path d="M220 145 H270"/><path d="M465 145 H515"/><path d="M710 145 H760"/></g>
+ <text x="491" y="215" font-size="14" text-anchor="middle">P2 red / black 18 AWG input pair</text>
+ <text x="735" y="215" font-size="14" text-anchor="middle">P1 Tensility 053-0192R barrel cable</text>
+ <g fill="none" stroke="#255d85" stroke-width="2.5" marker-end="url(#blue)"><path d="M868 190 V300"/><path d="M765 345 H715"/><path d="M245 345 H515"/></g>
+ <text x="878" y="270" font-size="14">P4 Ethernet</text><text x="380" y="333" font-size="14" text-anchor="middle">Existing USB data and power</text>
+ <text x="30" y="423" font-size="15">Verify connector fit and polarity before powering the LiDAR. Keep passive PoE disabled on its data port.</text>
+ <text x="30" y="446" font-size="14">Power uses the separate DC lead. The VRM does not process images or LiDAR data.</text>
+ </g>
+</svg>

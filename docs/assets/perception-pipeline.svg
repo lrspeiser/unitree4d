@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580" role="img" aria-labelledby="title desc">
+ <title id="title">Current inputs and planned COS camera and LiDAR integration</title>
+ <desc id="desc">LiDAR decoding and existing COS camera and pose inputs are available. Synchronization, calibration, moving-robot correction, fused object tracks, and the robot planner adapter still need implementation and validation.</desc>
+ <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#4b6474"/></marker></defs>
+ <rect width="1000" height="580" fill="white"/>
+ <g font-family="Arial,sans-serif" fill="#14232d">
+ <text x="30" y="35" font-size="23" font-weight="bold">Camera and LiDAR integration</text>
+ <text x="30" y="62" font-size="15">Solid boxes: existing inputs or bench tools. Dashed boxes: work still required in this repository.</text>
+ <g fill="#eef6f1" stroke="#377456" stroke-width="1.5"><rect x="30" y="95" width="275" height="85" rx="6"/><rect x="362" y="95" width="275" height="85" rx="6"/><rect x="695" y="95" width="275" height="85" rx="6"/></g>
+ <g font-size="18" text-anchor="middle" font-weight="bold">
+  <text x="168" y="129">Unitree L2 packets</text><text x="168" y="155">Validated bench decoding</text>
+  <text x="500" y="129">COS camera JPEGs</text><text x="500" y="155">Existing camera pipeline</text>
+  <text x="833" y="129">Robot field pose</text><text x="833" y="155">AprilTags and odometry</text>
+ </g>
+ <g fill="none" stroke="#4b6474" stroke-width="2" marker-end="url(#arrow)"><path d="M168 180 V220 H500 V245"/><path d="M500 180 V245"/><path d="M833 180 V220 H500"/></g>
+ <g fill="#f4f7fa" stroke="#4b6474" stroke-width="1.8" stroke-dasharray="7 5"><rect x="210" y="250" width="580" height="90" rx="6"/><rect x="210" y="385" width="580" height="80" rx="6"/></g>
+ <text x="500" y="281" font-size="19" text-anchor="middle" font-weight="bold">Native COS fusion adapter</text>
+ <text x="500" y="307" font-size="16" text-anchor="middle">Clock alignment + measured transforms + motion correction</text>
+ <text x="500" y="329" font-size="15" text-anchor="middle">Camera detections associated with foreground LiDAR clusters</text>
+ <path d="M500 340 V380" fill="none" stroke="#4b6474" stroke-width="2" marker-end="url(#arrow)"/>
+ <text x="500" y="416" font-size="19" text-anchor="middle" font-weight="bold">Timestamped object tracks and robot adapter</text>
+ <text x="500" y="443" font-size="16" text-anchor="middle">Image reference, class, range, position, footprint, confidence, age</text>
+ <text x="30" y="511" font-size="16" font-weight="bold">Unknown or stale data must remain unavailable. Missing points do not prove a clear path.</text>
+ <text x="30" y="541" font-size="15">Validate replay and simulation before steering. Existing BLine autos need an explicit planner integration.</text>
+ <text x="30" y="565" font-size="14">This diagram describes the development plan; it does not claim a completed fused detector or controller.</text>
+ </g>
+</svg>

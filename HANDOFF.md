@@ -1,5 +1,10 @@
 # Continue on the 5090 machine
 
+**Latest continuation:** [the README](README.md) now contains the Electrical Team
+and Software Team instructions, including the native Windows viewer and current
+bench address `192.168.0.250 -> 192.168.0.36:6201`. Some original Mac addressing
+and verification notes below predate that move. Use the current README first.
+
 Everything authored for the LiDAR setup is on this repository's `main`: source,
 real captures, plots, health reports, tests, deployment examples and these
 continuation notes. The FRC repositories remain separate dependencies; they have
@@ -39,7 +44,7 @@ robot integration point. It contains the exact inspected commits and paths.
 - Real L2 Ethernet input and calibrated 3D decoding work on the Apple Silicon Mac.
 - Original direct-link captures used L2 `192.168.1.62:6101` and destination
   `192.168.1.2:6201`. A later home-network configuration was acknowledged:
-  L2 `192.168.0.250:6101`, destination this Mac at `192.168.0.34:6201`.
+  L2 `192.168.0.250:6101`, destination the Mac at `192.168.0.34:6201`.
   After restart, a live Wi-Fi probe decoded 641,497 points / 2,171 scans in
   10.057 seconds with no invalid packets, gaps or discontinuities; see
   [current network commissioning state](docs/home-network.md).
@@ -58,8 +63,8 @@ robot integration point. It contains the exact inspected commits and paths.
   `unitree.localdomain` to `192.168.0.250`. The LiDAR's published settings expose
   static addressing, not a documented DHCP mode. Its new static configuration
   returned a matching success ACK and survived a power cycle. The Mac's dedicated
-  Ethernet adapter was restored to DHCP and is disconnected; Wi-Fi receives scans
-  from the LiDAR through the home LAN.
+  Ethernet adapter was restored to DHCP and disconnected; Mac Wi-Fi reception
+  was verified before the destination moved to the Windows PC.
 
 The L2 is separately powered by its supplied wall adapter. The USB adapter never
 enumerated on the Mac; Ethernet solved the connection. There is no established
@@ -99,9 +104,9 @@ javac --release 17 -d build/java $l2JavaSources
 java -cp build/java unitree4d.L2Probe 192.168.1.2 192.168.1.62 10
 ```
 
-The factory-address live command only works after configuring the receiving machine's actual
-Ethernet adapter to `192.168.1.2/24` and connecting the powered L2. Run just one
-UDP receiver at a time. Moving the sensor to the home or robot network requires
+The factory-address live command is historical and does not match the current
+sensor configuration. Do not reconfigure the Windows adapter to run it. Run just
+one UDP receiver at a time. Moving the sensor to the robot network requires
 commissioning its source and destination addresses first.
 
 This sensor is now commissioned on the home LAN. Its active probe command is:
@@ -110,10 +115,10 @@ This sensor is now commissioned on the home LAN. Its active probe command is:
 java -cp build/java unitree4d.L2Probe 0.0.0.0 192.168.0.250 10
 ```
 
-It currently sends to this Mac's reserved Wi-Fi IP. To receive on the 5090,
-reserve that computer's actual LAN address and explicitly change the sensor's
-destination with `l2_network.py`; see the home-network guide. Cloning the project
-or resolving the sensor's hostname does not redirect UDP data to another computer.
+It previously sent to the Mac's reserved Wi-Fi IP; its destination has since been
+changed to the 5090 at `192.168.0.36:6201`. Use the current README for reception
+instructions. Cloning the project or resolving the sensor's hostname does not
+redirect UDP data to another computer.
 
 ## The visual concern and controlled check
 

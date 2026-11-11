@@ -1,4 +1,9 @@
-# FRC test-bot integration
+# FRC diagnostic bridge reference
+
+For current student setup and purchasing, start with [the README](../README.md)
+and [electrical build guide](electrical-team-build-guide.md). The Java bridge below
+is diagnostic-only and has not been deployed to the bot. Address tables are
+examples, not the current sensor or verified bot network.
 
 Updated source inspection: see [the FRC repository map](frc-repository-map.md).
 The strongest matching test-bot/COS pair uses team **9972**, and its existing
@@ -75,7 +80,8 @@ Example addresses for **Team 971**, subject to the actual bot's address plan:
 
 Use subnet mask `255.255.255.0`. Confirm addresses are unused before applying
 them. These addresses are examples, not settings applied to the current L2.
-The sensor is still using `192.168.1.62 -> 192.168.1.2` from the Mac test.
+The last verified bench settings are `192.168.0.250:6101 -> 192.168.0.36:6201`.
+The original direct-link Mac addresses are historical.
 
 Commission the L2's new network settings while a computer can still reach the
 old address, using Unitree's configuration software or its
@@ -83,8 +89,9 @@ old address, using Unitree's configuration software or its
 subnet and both UDP ports to the values above; follow Unitree's save/restart
 procedure and verify receipt on the new subnet. The example's hard-coded initial
 and target addresses must be edited to the actual current settings before use.
-No automatic readdressing tool is provided here, so simply moving the Ethernet
-cable to the robot network will not finish commissioning.
+The repository now includes `l2_network.py` for read-only queries and staged
+configuration. Writes require explicit `--apply` and confirmed addresses; simply
+moving the Ethernet cable to the robot network will not finish commissioning.
 
 For a direct roboRIO receiver instead, change the L2 destination to the roboRIO's
 address and run the same receiver inside robot code. The L2 sends to one configured

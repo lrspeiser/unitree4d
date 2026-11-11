@@ -1,4 +1,9 @@
-# Unitree L2 on this Mac
+# Original Unitree L2 Mac verification
+
+**Historical direct-link setup.** The sensor was later readdressed to
+`192.168.0.250`, sending to the 5090 at `192.168.0.36:6201`. Use
+[the current team instructions](../README.md) for new work. Do not change the
+5090 network settings or assume the old addresses below are still active.
 
 The direct Ethernet connection was verified on 2026-11-11. The Mac receives
 3D scan packets from `192.168.1.62:6101` at `192.168.1.2:6201`.
