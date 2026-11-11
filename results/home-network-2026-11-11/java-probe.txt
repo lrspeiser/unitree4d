@@ -1,0 +1,11 @@
+scans=217 points=64113 invalid=0 gaps=0 fresh=true dirty=1.33
+scans=436 points=128821 invalid=0 gaps=0 fresh=true dirty=1.67
+scans=652 points=192635 invalid=0 gaps=0 fresh=true dirty=0.33
+scans=869 points=256789 invalid=0 gaps=0 fresh=true dirty=0.33
+scans=1087 points=321164 invalid=0 gaps=0 fresh=true dirty=4.67
+scans=1304 points=385326 invalid=0 gaps=0 fresh=true dirty=0.00
+scans=1520 points=449122 invalid=0 gaps=0 fresh=true dirty=2.00
+scans=1737 points=513253 invalid=0 gaps=0 fresh=true dirty=1.33
+scans=1954 points=577392 invalid=0 gaps=0 fresh=true dirty=0.67
+scans=2171 points=641497 invalid=0 gaps=0 fresh=true dirty=1.67
+{"duration_s":10.057,"valid_scans":2171,"valid_points":641497,"points_per_s":63788.7,"invalid_packets":0,"sequence_gaps":0,"discontinuities":0}

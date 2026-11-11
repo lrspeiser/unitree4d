@@ -1,9 +1,10 @@
 # Verification on 2026-11-11
 
-Tests were run on the connected Apple Silicon Mac, with the real L2 at
-`192.168.1.62`, receiver at `192.168.1.2:6201`. No sensor configuration or home
-router settings were changed. Only the Mac's dedicated Ethernet adapter was
-configured to the sensor's factory subnet.
+Initial tests were run on the connected Apple Silicon Mac, with the real L2 at
+`192.168.1.62`, receiver at `192.168.1.2:6201`. Those original captures used the
+factory sensor settings. A later commissioning step moved the sensor onto the
+home LAN with UniFi reservations and DNS; the verified new settings are in
+[home-network commissioning](home-network.md).
 
 | Check | Observed result |
 | --- | --- |
@@ -14,6 +15,9 @@ configured to the sensor's factory subnet.
 | Follow-up sequence gaps / unexpected resets | 0 / 0; two normal 1024-counter wraps |
 | Java live probe | 1,735 scans, 479,880 points in 8.043 s |
 | Java invalid packets / observed gaps | 0 / 0 |
+| Home LAN after IP change and power cycle | 2,171 scans, 641,497 points in 10.057 s over Mac Wi-Fi |
+| Home LAN invalid packets / gaps / discontinuities | 0 / 0 / 0; fresh at every one-second check |
+| Home LAN DNS | `unitree` and `unitree.localdomain` resolve to `192.168.0.250` |
 | Java vs official C++ conversion | 260 points in real fixture; max XYZ difference 0.0000567 m |
 | Corrupt packet tests | Bad header, CRC, truncation, out-of-bounds count, NaN calibration and invalid time rejected |
 | UDP receiver tests | Source-port filtering, silence, corrupted-packet staleness and close/shutdown pass |

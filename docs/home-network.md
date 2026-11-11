@@ -12,15 +12,24 @@ Those values were read through the actual sensor's version command.
 - This Mac's existing Wi-Fi lease `192.168.0.34` is now reserved as the receiver.
 - The L2 acknowledged a type-108 configuration write with status `1` for
   `192.168.0.250:6101`, destination `192.168.0.34:6201`, gateway `192.168.0.1`,
-  mask `255.255.255.0`. Activation after restart and live LAN scans are pending.
+  mask `255.255.255.0`. After the user moved Ethernet to the home LAN and
+  power-cycled the L2, its new address answered all three ping requests.
+- A live Java probe over the Mac's Wi-Fi (`en0`) decoded 2,171 scans / 641,497
+  points in 10.057 seconds, with zero invalid packets, sequence gaps or
+  discontinuities. Data remained fresh at every one-second check. The disconnected
+  direct Ethernet adapter was inactive during this test.
+- Read-only identity/work-mode queries also succeeded at the new address:
+  firmware `2.8.11.1`, hardware `2.2.1.1`, name `YS-L2`, work mode `5`.
 - The previous direct-link settings were L2 `192.168.1.62:6101` and receiver
-  `192.168.1.2:6201`. The Mac's dedicated Ethernet adapter remains manually
-  configured to `192.168.1.2/24` with no router; Wi-Fi supplies the home connection.
+  `192.168.1.2:6201`. The Mac's dedicated Ethernet adapter was restored to DHCP
+  after disconnecting it. Wi-Fi supplies the home connection.
 
-The L2 must be powered off/on after moving its Ethernet cable to a home-network
-LAN port. The saved DNS/reservation and sensor ACK alone do not verify a live
-connection. The local reply record and UniFi screenshots are kept under ignored
-`tmp/`; no router login/session information is committed.
+The source/destination settings survived the power cycle and actual LAN reception
+was verified, beyond the saved DNS/reservation and sensor ACK. See
+[`results/home-network-2026-11-11`](../results/home-network-2026-11-11) for the
+probe output and health record. The local configuration reply record and UniFi
+screenshots are kept under ignored `tmp/`; no router login/session information
+is committed.
 
 Unitree's published manual and SDK expose a static LiDAR IP, destination IP,
 gateway, subnet mask and UDP ports. They do not document a DHCP-client or hostname

@@ -2,7 +2,8 @@
 
 Receive and decode Unitree 4D LiDAR L2 scans on a Mac, and provide a Java 17
 foundation for a Jetson-to-roboRIO integration. The real L2 was verified over
-direct Ethernet on 2026-11-11. Jetson deployment and robot power tests are pending.
+direct Ethernet and the home LAN over Wi-Fi on 2026-11-11. Jetson deployment and
+robot power tests are pending.
 
 **Continuing on the 5090 machine:** start with [HANDOFF.md](HANDOFF.md), including
 the verified state, checkout commands and implementation priorities. The
@@ -31,6 +32,22 @@ git clone --recurse-submodules https://github.com/lrspeiser/unitree4d.git
 cd unitree4d
 make all test
 ```
+
+**Current home-LAN setup:** the sensor is `unitree.localdomain` / `192.168.0.250`,
+sending to this Mac's reserved `192.168.0.34:6201`. Run:
+
+```sh
+java -cp build/java unitree4d.L2Probe 0.0.0.0 192.168.0.250 10
+```
+
+The live LAN check decoded 641,497 points in 10.057 seconds with zero invalid
+packets or sequence gaps. See [home-network commissioning](docs/home-network.md)
+before moving the receiver to another machine.
+
+### Factory-address direct connection
+
+These commands apply to an L2 still using its factory settings, or one explicitly
+reconfigured back to them. The commissioned home-LAN sensor uses the addresses above.
 
 Power the L2 with its supplied wall adapter. Connect Ethernet directly to the
 Mac's Ethernet adapter. Set that adapter to `192.168.1.2/24`, with no router;

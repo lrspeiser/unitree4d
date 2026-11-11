@@ -40,7 +40,8 @@ robot integration point. It contains the exact inspected commits and paths.
 - Original direct-link captures used L2 `192.168.1.62:6101` and destination
   `192.168.1.2:6201`. A later home-network configuration was acknowledged:
   L2 `192.168.0.250:6101`, destination this Mac at `192.168.0.34:6201`.
-  Restart and live home-LAN verification are pending; see
+  After restart, a live Wi-Fi probe decoded 641,497 points / 2,171 scans in
+  10.057 seconds with no invalid packets, gaps or discontinuities; see
   [current network commissioning state](docs/home-network.md).
 - The original 30-second capture decoded 1,785,215 valid points with zero packet
   framing, CRC or payload failures, about 59,500 valid points per second.
@@ -56,8 +57,9 @@ robot integration point. It contains the exact inspected commits and paths.
 - UniFi now reserves the LiDAR and Mac addresses and resolves `unitree` /
   `unitree.localdomain` to `192.168.0.250`. The LiDAR's published settings expose
   static addressing, not a documented DHCP mode. Its new static configuration
-  returned a matching success ACK. The Mac's dedicated Ethernet adapter still
-  uses manual `192.168.1.2/24`, no router; Wi-Fi remains on the home LAN.
+  returned a matching success ACK and survived a power cycle. The Mac's dedicated
+  Ethernet adapter was restored to DHCP and is disconnected; Wi-Fi receives scans
+  from the LiDAR through the home LAN.
 
 The L2 is separately powered by its supplied wall adapter. The USB adapter never
 enumerated on the Mac; Ethernet solved the connection. There is no established
@@ -97,10 +99,21 @@ javac --release 17 -d build/java $l2JavaSources
 java -cp build/java unitree4d.L2Probe 192.168.1.2 192.168.1.62 10
 ```
 
-The live command only works after configuring the receiving machine's actual
+The factory-address live command only works after configuring the receiving machine's actual
 Ethernet adapter to `192.168.1.2/24` and connecting the powered L2. Run just one
 UDP receiver at a time. Moving the sensor to the home or robot network requires
 commissioning its source and destination addresses first.
+
+This sensor is now commissioned on the home LAN. Its active probe command is:
+
+```sh
+java -cp build/java unitree4d.L2Probe 0.0.0.0 192.168.0.250 10
+```
+
+It currently sends to this Mac's reserved Wi-Fi IP. To receive on the 5090,
+reserve that computer's actual LAN address and explicitly change the sensor's
+destination with `l2_network.py`; see the home-network guide. Cloning the project
+or resolving the sensor's hostname does not redirect UDP data to another computer.
 
 ## The visual concern and controlled check
 

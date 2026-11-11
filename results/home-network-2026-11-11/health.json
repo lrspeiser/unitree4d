@@ -1,0 +1,50 @@
+{
+  "verified_at_utc": "2026-11-11T22:42:02.203673+00:00",
+  "sensor": {
+    "ip": "192.168.0.250",
+    "port": 6101,
+    "hardware": "2.2.1.1",
+    "firmware": "2.8.11.1",
+    "name": "YS-L2",
+    "work_mode": 5,
+    "addressing": "static"
+  },
+  "receiver": {
+    "ip": "192.168.0.34",
+    "port": 6201,
+    "interface": "en0",
+    "transport": "Mac Wi-Fi through home LAN"
+  },
+  "gateway": "192.168.0.1",
+  "mask": "255.255.255.0",
+  "dns": {
+    "short_name": "unitree",
+    "fqdn": "unitree.localdomain",
+    "resolved_ip": "192.168.0.250",
+    "normal_mac_resolver_verified": true
+  },
+  "config_ack": {
+    "type": 101,
+    "ack_packet_type": 108,
+    "command": 0,
+    "value": 0,
+    "status": 1
+  },
+  "activation_verified_after_user_power_cycle": true,
+  "direct_ethernet_inactive_during_probe": true,
+  "ping": {
+    "transmitted": 3,
+    "received": 3,
+    "mean_round_trip_ms": 4.079
+  },
+  "probe": {
+    "duration_s": 10.057,
+    "valid_scans": 2171,
+    "valid_points": 641497,
+    "points_per_s": 63788.7,
+    "invalid_packets": 0,
+    "sequence_gaps": 0,
+    "discontinuities": 0
+  },
+  "limits": "One short bench check; no robot deployment, IMU validation, absolute range calibration or avoidance test."
+}
