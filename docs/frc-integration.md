@@ -1,5 +1,11 @@
 # FRC test-bot integration
 
+Updated source inspection: see [the FRC repository map](frc-repository-map.md).
+The strongest matching test-bot/COS pair uses team **9972**, and its existing
+Jetson pipeline is native C++. The Java bridge below remains a tested standalone
+foundation; native COS integration is the preferred next production step.
+The Team 971 addresses below are illustrative, not confirmed test-bot settings.
+
 ## Recommended arrangement
 
 Use the onboard Jetson to receive the full scan stream. Keep robot actuation

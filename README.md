@@ -4,6 +4,11 @@ Receive and decode Unitree 4D LiDAR L2 scans on a Mac, and provide a Java 17
 foundation for a Jetson-to-roboRIO integration. The real L2 was verified over
 direct Ethernet on 2026-11-11. Jetson deployment and robot power tests are pending.
 
+**Continuing on the 5090 machine:** start with [HANDOFF.md](HANDOFF.md), including
+the verified state, checkout commands and implementation priorities. The
+[FRC repository map](docs/frc-repository-map.md) identifies the matching COS and
+test-bot code, existing camera/logging components and planner integration gaps.
+
 ## What is working
 
 - Native C++ receive-only capture with Unitree's calibrated point conversion.
@@ -48,6 +53,11 @@ Use the **Jetson** for full point-cloud processing and recording. Send compact,
 timestamped results to the **roboRIO** via NetworkTables. The included bridge
 currently sends diagnostics from the latest scan slice; object detection,
 mapping, full-revolution obstacle summaries and autonomous driving are future work.
+
+Source inspection subsequently identified the team's existing native C++ **COS**
+stack as the preferred Jetson integration point. The standalone Java bridge is
+a verified bench foundation. The matching test-bot source uses team **9972**;
+verify the physical bot before applying the earlier generic Team 971 network examples.
 
 ```text
 protected robot power -> regulated 12 V -> L2 power lead
